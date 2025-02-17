@@ -130,14 +130,14 @@ fn benchmark_test() {
         lng: f64,
         len: usize,
     }
-    let mut rng = rand::thread_rng();
+    let mut rng = rand::rng();
     // Create the benchmark data - coordinates and lengths for encoding, codes for decoding.
     let loops = 100000;
     let mut bd: Vec<BenchmarkData> = Vec::new();
     for _i in 0..loops {
-        let lat = rng.gen_range(-90.0..90.0);
-        let lng = rng.gen_range(-180.0..180.0);
-        let mut len = rng.gen_range(2..15);
+        let lat = rng.random_range(-90.0..90.0);
+        let lng = rng.random_range(-180.0..180.0);
+        let mut len = rng.random_range(2..15);
         // Make sure the length is even if it's less than 10.
         if len < 10 && len % 2 == 1 {
             len += 1;
